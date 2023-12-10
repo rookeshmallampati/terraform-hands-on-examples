@@ -19,3 +19,11 @@ The main.tf file uses these variables to configure an AWS provider and dynamical
 Create networking resources like VPC, Subnets, Route Tables, Internet Gateway and associations.
 
 The variables are defined in the variable.tf file. The provider is defined in the provider.tf file. The resources are defined in the main.tf file.  
+
+
+**task-4**
+Example to use the terraform workspace to run config files according to the workspace environment. Store the terraform.tfstate file into the S3 bucket so the state file can be shared between the team members for development purposes.
+
+
+
+
