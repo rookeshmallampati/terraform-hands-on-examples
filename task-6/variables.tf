@@ -18,18 +18,6 @@ variable "ec2_user" {
     default = "rapidd-aws-key"
 }
 
-#variable "subnet_cidr" {}
-#variable "availability_zone" {}
-#variable "subnet_name" {}
-
-#variable "route_table_name" {}
-
-#variable "internet_gateway_name" {}
-
-#variable "ami" {}
-#variable "instance_type" {}
-#variable "ec2_instance_name" {}
-
 variable "region" {
   default     = "us-east-1"
 }
