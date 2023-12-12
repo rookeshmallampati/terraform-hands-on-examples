@@ -1,64 +1,32 @@
-variable "vpc_cidr_block" {
-    default = "10.0.0.0/16"
-}
-
-variable "public_subnet_cidr_block" {
-    default = "10.0.1.0/24"
-}
-
-variable "ec2_instance_name" {
-    default = "nginx-instance"
+variable "ami" {
+  default     = ""
 }
 
 variable "instance_type" {
-    default = "t2.micro"
+    default = ""
 }
 
-variable "ec2_user" {
-    default = "rapidd-aws-key"
+variable "subnet_id" {
+    default = ""
 }
 
-#variable "subnet_cidr" {}
-#variable "availability_zone" {}
-#variable "subnet_name" {}
-
-#variable "route_table_name" {}
-
-#variable "internet_gateway_name" {}
-
-#variable "ami" {}
-#variable "instance_type" {}
-#variable "ec2_instance_name" {}
-
-variable "region" {
-  default     = "us-east-1"
-}
-
-variable "vpc_name" {
-  default     = "dev-vpc"
-}
-
-variable "public-subnet-name" {
-  default     = "pub-sub-1"
-}
-
-variable "private-subnet-name" {
-  default     = "prv-sub-1"
-}
-
-variable "route-table-name" {
-  default     = "dev-rt-1"
-}
-
-variable "internet-gateway-name" {
-  default     = "dev-igw-1"
+variable "vpc_id" {
+    default = ""
 }
 
 #Tags
+variable "tag_ec2_instance_name" {
+  default = ""
+}
+
+variable "tag_security_group_name" {
+  default = ""
+}
+
 variable "tag_env" {
-  default     = "dev"
+  default = ""
 }
 
 variable "tag_project" {
-  default     = "smart-store"
+  default = ""
 }

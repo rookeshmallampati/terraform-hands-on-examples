@@ -8,6 +8,9 @@
 # .lock files
 **/.terraform.lock.hcl
 
+# local variable file
+**/terraform.tfvars
+
 # Crash log files
 crash.log
 crash.*.log
