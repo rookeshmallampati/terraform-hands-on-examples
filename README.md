@@ -22,14 +22,17 @@ The variables are defined in the variable.tf file. The provider is defined in th
 
 
 **task-4**
+
 Example to use the terraform workspace to run config files according to the workspace environment. Store the terraform.tfstate file into the S3 bucket so the state file can be shared between the team members for development purposes.
 
 
 **task-5**
+
 Below is an example of how you can create an EC2 instance and Security Group and attach the security group to an EC2 instance using modules in Terraform.
 This structure uses separate modules for the EC2 instance and Security Group. Each module has its own main.tf, variables.tf, and outputs.tf files. The root module then uses these modules and provides specific values for variables.
 
 
 **task-6**
+
 This structure uses Terraform public registry modules to create VPC, Subnet, Route table, Internet gateway and EC2 instance.
 Also we are going to deploy a static website by installing Nginx on the EC2 instance. We shall use the userdata feature of instance to pass the required commands.
