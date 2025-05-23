@@ -37,39 +37,33 @@ module "ec2_instance" {
   # user_data = file("${path.module}/userdata.tpl")
 
   tags = {
-    Name   = "dev_instance"
+    Name        = "dev_instance"
     Environment = "dev"
   }
 }
 
 resource "aws_security_group" "ssh-allowed" {
-    vpc_id = module.vpc.vpc_id
-    
-    egress {
-        from_port = 0
-        to_port = 0
-        protocol = -1
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    ingress {
-        from_port = 22
-        to_port = 22
-        protocol = "tcp"
-        // This means, all ip address are allowed to ssh ! 
-        // Do not do it in the production. 
-        // Put your office or home address in it!
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    //If you do not add this rule, you can not reach the NGINX  
-    ingress {
-        from_port = 80
-        to_port = 80
-        protocol = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
+  vpc_id = module.vpc.vpc_id
 
-    tags = {
-        Name = "ssh-allowed"
-        Environment = "dev"
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = var.cidr_blocks
+  }
+
+  dynamic "ingress" {
+    for_each = var.allowed_ports
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = var.cidr_blocks
     }
+  }
+
+  tags = {
+    Name        = "ssh-allowed"
+    Environment = "dev"
+  }
 }
