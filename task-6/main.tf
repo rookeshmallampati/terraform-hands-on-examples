@@ -28,13 +28,13 @@ module "ec2_instance" {
   name = var.ec2_instance_name
 
   instance_type          = var.instance_type
-  key_name               = var.ec2_user
+  key_name               = "my-key"
   monitoring             = true
   vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
   subnet_id              = module.public_subnets.subnet_ids.0
 
   # nginx installation
-  # user_data = file("userdata.tpl")
+  # user_data = file("${path.module}/userdata.tpl")
 
   tags = {
     Name   = "dev_instance"
